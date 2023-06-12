@@ -7,9 +7,9 @@ namespace Entity;
 class People
 {
     private int $id;
-    private int $avatarId;
-    private string $birthday;
-    private string $deathday;
+    private ?int $avatarId;
+    private ?string $birthday;
+    private ?string $deathday;
     private string $name;
     private string $biography;
     private string $placeOfBirth;
@@ -23,7 +23,7 @@ class People
     }/**
  * @return int
  */
-    public function getAvatarId(): int
+    public function getAvatarId(): ?int
     {
         return $this->avatarId;
     }/**
