@@ -208,7 +208,7 @@ class Movie
         return PeopleCollection::findByPeopleId($this->id);
     }
 
-    public function update(): Movie
+    protected function update(): Movie
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
@@ -222,7 +222,7 @@ class Movie
         return $this;
     }
 
-    public function insert(): Movie
+    protected function insert(): Movie
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
