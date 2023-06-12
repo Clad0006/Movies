@@ -2,3 +2,4 @@
 .idea
 .mypdo.ini
 composer.lock
+.php-cs-fixer.cache
