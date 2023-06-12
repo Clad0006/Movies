@@ -10,8 +10,12 @@
   },
   "authors": [
     {
-      "name": "carr0101 / clad0006",
-      "email": "nicolas.carre@etudiant.univ-reims.fr / valentin.cladel@etudiant.univ-reims.fr"
+      "name": "carr0101",
+      "email": "nicolas.carre@etudiant.univ-reims.fr"
+    },
+    {
+      "name": "clad0006",
+      "email": "valentin.cladel@etudiant.univ-reims.fr"
     }
   ],
   "require": {
