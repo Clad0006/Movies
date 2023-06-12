@@ -10,11 +10,36 @@
   },
   "authors": [
     {
-      "name": "carr0101",
-      "email": "nicolas.carre@etudiant.univ-reims.fr"
+      "name": "carr0101 / clad0006",
+      "email": "nicolas.carre@etudiant.univ-reims.fr / valentin.cladel@etudiant.univ-reims.fr"
     }
   ],
   "require": {
     "ext-pdo": "*"
+  },
+  "scripts": {
+    "start:linux" :[
+      "Composer\\config::disableProcessTimeout",
+      "bin/run-server.sh"
+    ],
+    "test:cs" : "php vendor/bin/php-cs-fixer fix --dry-run",
+    "fix:cs" : "php vendor/bin/php-cs-fixer fix",
+    "start:windows" :[
+      "Composer\\config::disableProcessTimeout",
+      "bin/run-server.bat"
+    ],
+    "start" : "@start:linux",
+    "test:crud":"php vendor/bin/codecept run Crud",
+    "test:codecept": "php vendor/bin/codecept run",
+    "test": ["@test:cs",
+      "test:codecept"
+    ]
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.17",
+    "codeception/codeception": "^4.1",
+    "codeception/module-phpbrowser": "^1",
+    "codeception/module-asserts": "^1",
+    "codeception/module-db": "^1"
   }
 }
