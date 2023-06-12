@@ -1,0 +1,60 @@
+html,
+body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+
+}
+body{
+    width: 360px;
+}
+.titre{
+    text-align: center;
+    margin: 5px 0;
+}
+.film{
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+}
+.header {
+    display: flex;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid white;
+    justify-content: center;
+}
+h1{
+    border: 1px solid #42dc42;
+    text-align: center;
+    padding: 10px;
+}
+.content {
+    border: 1px solid white;
+    margin: 0 10px;
+    padding: 15px;
+    overflow: scroll;
+}
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 5px;
+    justify-content: center;
+}
+.footer {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border: 1px solid white;
+}
+.footer > p{
+    border: 1px solid #42dc42;
+    text-align: center;
+    align-self: center;
+    padding: 5px;
+}

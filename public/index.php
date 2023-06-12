@@ -11,9 +11,8 @@ $webpage = new AppWebPage();
 $webpage->setTitle('Films');
 
 $stmt = MovieCollection::findAll();
-$stmt2 = MovieCollection::findAll();
 foreach ($stmt as $ligne) {
-    $webpage->appendContent("<img src='image.php?imageId={$ligne->getPosterId()}'>".$webpage->escapeString("{$ligne->getTitle()}")."</a><br>\n");
+    $webpage->appendContent("<div class='film' ><img src='image.php?imageId={$ligne->getPosterId()}'>"."<div class='titre'>".$webpage->escapeString("{$ligne->getTitle()}")."</div></div><br>\n");
 }
 $webpage->appendFooter("<p>Dernière modification : {$webpage->getLastModif()}</p>\n");
 
