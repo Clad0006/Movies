@@ -14,7 +14,7 @@ if (ctype_digit($_GET['movieId'])) {
     header("Location:/");
 }
 $movie = Movie::findById(intval($movieId));
-$people = PeopleCollection::findAll();
+$people = PeopleCollection::findByMovieId(intval($movieId));
 
 $nom = $movie->getTitle();
 $webpage->setTitle("Films - $nom");
