@@ -16,9 +16,9 @@ class MovieCollection
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-                SELECT *
-                FROM movie
-                ORDER BY title;
+                SELECT DISTINCT m.*
+                FROM movie m JOIN movie_genre mg on m.id=mg.movieId JOIN genre g on mg.genreId=g.id
+                ORDER BY g.name,m.title
             SQL
         );
 
