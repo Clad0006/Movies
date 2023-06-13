@@ -39,7 +39,7 @@ class People
     }/**
  * @return string
  */
-    public function getDeathday(): string
+    public function getDeathday(): ?string
     {
         return $this->deathday;
     }/**

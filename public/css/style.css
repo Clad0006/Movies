@@ -49,17 +49,17 @@ img{
     width: 150px;
     border-radius: 20px;
 }
-.description{
+.info{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin: 10px;
+}
+.descriptionFilm{
     display: flex;
     padding: 10px;
     border: 2px solid #4bdc5a;
     border-radius: 10px;
-}
-.info{
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    gap: 5px;
 }
 .titre{
     border: 2px solid #8f8e8e;
@@ -95,8 +95,10 @@ img{
     padding: 10px;
     flex: 1;
 }
-.description > img{
+.affiche{
     width: 170px;
+    height: 250px;
+    align-self: center;
 }
 .lesActeurs{
     display: flex;
@@ -112,24 +114,70 @@ img{
     padding: 15px;
     border: 2px solid gray;
     border-radius: 10px;
-    gap: 10px;
 }
-.acteur > img{
-    width: 70px;
+
+.avatar{
+    width: 75px;
     border-radius: 5px;
+}
+.infoActeur{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 .nomActeur{
     border: 2px solid #8f8e8e;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
+    margin: 10px;
+}
+.descriptionActeur{
+    display: flex;
+    padding: 10px;
+    border: 2px solid #4bdc5a;
+    border-radius: 10px;
+}
+.photo{
+    width: 150px;
+    height: 200px;
+    align-self: center;
+}
+
+.nom{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.lieu{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.dateActeur{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+.dateNais{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
     flex: 1;
 }
-.infoActeur{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.dateMort{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    padding: 5px;
     flex: 1;
+}
+.bio{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    padding: 10px;
 }
 .footer {
     display: flex;
