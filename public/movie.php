@@ -15,6 +15,7 @@ if (ctype_digit($_GET['movieId'])) {
 }
 $movie = Movie::findById(intval($movieId));
 $people = PeopleCollection::findByMovieId(intval($movieId));
+$role = PeopleCollection::findRolesByMovieId(intval($movieId));
 
 $nom = $movie->getTitle();
 $webpage->setTitle("Films - $nom");
@@ -38,6 +39,7 @@ $webpage->appendContent("                </div>\n");
 $webpage->appendContent("            </div>\n");
 
 $webpage->appendContent("<div class='lesActeurs'>\n");
+$n = 0;
 foreach ($people as $ligne) {
     if($ligne->getAvatarId()!=null) {
         $webpage->appendContent("<div class='acteur'><img src='image.php?imageId={$ligne->getAvatarId()}'><div class='infoActeur'><div class='nomActeur'>" . $webpage->escapeString("{$ligne->getName()}") . "</div><div class='nomActeur'>" . $webpage->escapeString("{$ligne->getName()}") . "</div></div></div>\n");
