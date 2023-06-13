@@ -11,7 +11,12 @@ $webpage->setTitle('Films');
 
 $stmt = MovieCollection::findAll();
 foreach ($stmt as $ligne) {
-    $webpage->appendContent("<div class='film'><a href='movie.php?movieId={$ligne->getId()}'><img src='image.php?imageId={$ligne->getPosterId()}'>"."<div class='title'>".$webpage->escapeString("{$ligne->getTitle()}")."</a></div></div><br>\n");
+    if ($ligne->getPosterId() != null){
+        $webpage->appendContent("<div class='film'><a href='movie.php?movieId={$ligne->getId()}'><img src='image.php?imageId={$ligne->getPosterId()}'>" . "<div class='title'>" . $webpage->escapeString("{$ligne->getTitle()}") . "</a></div></div><br>\n");
+    }
+    else{
+        $webpage->appendContent("<div class='film'><a href='movie.php?movieId={$ligne->getId()}'><img src='https://c8.alamy.com/compfr/ek1c8x/cinema-film-la-cinematographie-annonce-affiche-ou-flyer-avec-arriere-plan-de-l-espace-vide-ek1c8x.jpg'>" . "<div class='title'>" . $webpage->escapeString("{$ligne->getTitle()}") . "</a></div></div><br>\n");
+    }
 }
 $webpage->appendFooter("<p>Dernière modification : {$webpage->getLastModif()}</p>\n");
 

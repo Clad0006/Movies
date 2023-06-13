@@ -15,8 +15,8 @@ class People
     private ?string $birthday;
     private ?string $deathday;
     private string $name;
-    private string $biography;
-    private string $placeOfBirth;
+    private ?string $biography;
+    private ?string $placeOfBirth;
 
     /**
  * @return int
