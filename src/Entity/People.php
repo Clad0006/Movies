@@ -62,6 +62,24 @@ class People
         return $this->placeOfBirth;
     }
 
+    public static function findById(int $id): People
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+        SELECT *
+        FROM people
+        WHERE id = ?
+       SQL
+        );
+        $stmt->setFetchMode(MyPDO::FETCH_CLASS, People::class);
+        $stmt->execute([$id]);
+        if (!($people = $stmt->fetch())) {
+            throw new EntityNotFoundException('Id invalide');
+        } else {
+            return $people;
+        }
+    }
+
     public function findMovies(int $peopleId):array
     {
         $stmt = MyPDO::getInstance()->prepare(
