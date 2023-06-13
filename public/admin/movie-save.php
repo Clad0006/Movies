@@ -6,7 +6,7 @@ use Entity\Movie;
 use Entity\Exception\ParameterException;
 use \Html\Form\MovieForm;
 
-header('Location: index.php');
+header('Location: ../index.php');
 
 try {
     if ($_POST["originalLanguage"]=='' or $_POST["originalTitle"]=='' or $_POST["releaseDate"]=='' or $_POST["runtime"]=='' or $_POST["title"]==''){

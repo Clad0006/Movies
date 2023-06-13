@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Entity;
 
+use Database\MyPdo;
+use Entity\Movie;
+use Entity\Cast;
+
 class People
 {
     private int $id;
@@ -56,6 +60,34 @@ class People
     public function getPlaceOfBirth(): string
     {
         return $this->placeOfBirth;
+    }
+
+    public function findMovies(int $peopleId):array
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+        SELECT m.movieId,m.posterId,m.title,m.releaseDate
+        FROM people p JOIN cast c ON p.id = c.peopleId JOIN movie m on c.movieId=m.id
+        WHERE peopleId = ?
+       SQL
+        );
+        $stmt->setFetchMode(MyPDO::FETCH_CLASS, Movie::class);
+        $stmt->execute([$peopleId]);
+        return $stmt->fetchAll();
+    }
+
+    public function findRoles(int $peopleId):array
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+        SELECT c.role
+        FROM people p JOIN cast c ON p.id = c.peopleId JOIN movie m on c.movieId=m.id
+        WHERE peopleId = ?
+       SQL
+        );
+        $stmt->setFetchMode(MyPDO::FETCH_CLASS, Cast::class);
+        $stmt->execute([$peopleId]);
+        return $stmt->fetchAll();
     }
 
 }
