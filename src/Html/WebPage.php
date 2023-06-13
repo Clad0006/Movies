@@ -2,6 +2,7 @@
 
 namespace Html;
 class WebPage{
+    use StringEscaper;
     private string $head = "";
     private string $title ="";
     private string $body = "";
@@ -152,16 +153,6 @@ class WebPage{
         </body>
     </html>
     HTML;
-    }
-
-    /**
-     * Protéger les caractères spéciaux pouvant dégrader la page Web.
-     *
-     * @param string $string La chaîne à protéger
-     * @return string La chaîne protégée
-     */
-    public function escapeString(string	$string):string{
-        return htmlspecialchars($string, ENT_QUOTES | ENT_HTML5,'UTF-8');
     }
 
     /**
