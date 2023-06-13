@@ -36,7 +36,7 @@ class MovieForm
         $originalTitle=$this->escapeString($this->movie?->getOriginalTitle());
         $overview=$this->escapeString($this->movie?->getOverview());
         $releaseDate=$this->escapeString($this->movie?->getReleaseDate());
-        $runtime=$this->escapeString($this->movie?->getRuntime());
+        $runtime=$this->movie?->getRuntime();
         $tagline=$this->escapeString($this->movie?->getTagline());
         $title=$this->escapeString($this->movie?->getTitle());
         return "
