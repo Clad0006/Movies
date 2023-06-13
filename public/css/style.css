@@ -1,6 +1,7 @@
 html,
-body{
+body {
     height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,58 +9,147 @@ body{
     flex-direction: column;
     background-color: black;
     color: white;
-
 }
-body{
-    width: 360px;
-}
-.titre{
-    text-align: center;
-    margin: 5px 0;
-}
-a {
-    display: flex;
-    flex-direction: column;
-    width: 90px;
-    text-decoration: unset;
-    color: white;
-}
-
 .header {
     display: flex;
-    margin: 10px;
+    margin: 20px;
     padding: 5px;
     border: 1px solid white;
     justify-content: center;
+
 }
 h1{
-    border: 1px solid #42dc42;
+    color: #4bdc5a;
     text-align: center;
     padding: 10px;
 }
+
 .content {
+    margin: 0 20px;
+    padding: 20px;
     border: 1px solid white;
-    margin: 0 10px;
-    padding: 15px;
     overflow: scroll;
 }
 .list{
     display: flex;
+    border: 1px solid white;
     flex-wrap: wrap;
-    column-gap: 5px;
-    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+}
+.film{
+    width: 150px;
+    margin: 10px 0;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+img{
+    width: 150px;
+    border-radius: 20px;
+}
+.description{
+    display: flex;
+    padding: 10px;
+    border: 2px solid #4bdc5a;
+    border-radius: 10px;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap: 5px;
+}
+.titre{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    flex: 2;
+    padding: 10px;
+}
+.date{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    flex: 1;
+    text-align: right;
+    padding: 10px;
+}
+.titreDate{
+    display: flex;
+    column-gap: 10px;
+}
+.titreOriginal{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    text-align: right;
+    padding: 10px;
+}
+.slogan{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    padding: 10px;
+}
+.resume{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    padding: 10px;
+    flex: 1;
+}
+.description > img{
+    width: 170px;
+}
+.lesActeurs{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 2px solid #4bdc5a;
+    border-radius: 10px;
+    width: 100%;
+    gap: 10px;
+}
+.acteur{
+    display: flex;
+    padding: 15px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    gap: 10px;
+}
+.acteur > img{
+    width: 70px;
+    border-radius: 5px;
+}
+.nomActeur{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    flex: 1;
+}
+.infoActeur{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
 }
 .footer {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 20px;
     border: 1px solid white;
 }
 .footer > p{
-    border: 1px solid #42dc42;
+    color: #4bdc5a;
     text-align: center;
     align-self: center;
     padding: 5px;
 }
-
-
+.footer > a{
+    color: #4bdc5a;
+    text-align: center;
+    align-self: center;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+.footer > a:hover{
+    color: red;
+}
