@@ -132,11 +132,20 @@ img{
     text-align: center;
     margin: 10px;
 }
+.role{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+}
 .descriptionActeur{
     display: flex;
     padding: 10px;
     border: 2px solid #4bdc5a;
     border-radius: 10px;
+    flex: 1;
+
 }
 .photo{
     width: 150px;
