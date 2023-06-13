@@ -1,6 +1,6 @@
 <?php
 
-use Entity\Collection\PeopleCollection;
+use Entity\Collection\MovieCollection;
 use Entity\People;
 use Html\AppWebPage;
 
@@ -12,7 +12,8 @@ if (ctype_digit($_GET['peopleId'])) {
     header("Location:/");
 }
 $people = People::findById(intval($peopleId));
-$people_movie = PeopleCollection::findByMovieId(intval($peopleId));
+$people_movie = People::findMovies(intval($peopleId));
+$role = People::findRoles(intval($peopleId));
 
 $nom = $people->getName();
 $webpage->setTitle("Films - $nom");
@@ -30,6 +31,12 @@ $webpage->appendContent("                        <div class='bio'>".$webpage->es
 $webpage->appendContent("                    </div>\n");
 $webpage->appendContent("                </div>\n");
 $webpage->appendContent("            </div>\n");
+
+$n = 0;
+foreach ($people_movie as $ligne) {
+    $webpage->appendContent("<div class='film'><a href='movie.php?movieId={$ligne->getId()}'><img class='afficheFilm' src='image.php?imageId={$ligne->getPosterId()}'><div class='infoFilm'><div class='titreFilm'>".$webpage->escapeString("{$ligne->getTitle()}")."<div class='dateFilm'>".$webpage->escapeString("{$ligne->getReleaseDate()}")."<div class='role'>".$role[$n]->getRole()."</div></div></div></a></div></div>\n");
+    $n += 1;
+}
 
 $webpage->appendFooter("<p>Dernière modification : {$webpage->getLastModif()}</p>\n"."<a href='index.php'> Retourner à l'acceuil</a>");
 

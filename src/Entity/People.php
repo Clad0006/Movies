@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Entity;
 
 use Database\MyPdo;
+use Entity\Exception\EntityNotFoundException;
 use Entity\Movie;
 use Entity\Cast;
 
@@ -80,11 +81,11 @@ class People
         }
     }
 
-    public function findMovies(int $peopleId):array
+    public static function findMovies(int $peopleId): array
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-        SELECT m.movieId,m.posterId,m.title,m.releaseDate
+        SELECT m.id,m.posterId,m.title,m.releaseDate
         FROM people p JOIN cast c ON p.id = c.peopleId JOIN movie m on c.movieId=m.id
         WHERE peopleId = ?
        SQL
@@ -94,7 +95,7 @@ class People
         return $stmt->fetchAll();
     }
 
-    public function findRoles(int $peopleId):array
+    public static function findRoles(int $peopleId): array
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
