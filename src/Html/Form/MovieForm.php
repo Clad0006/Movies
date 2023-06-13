@@ -100,7 +100,7 @@ class MovieForm
         $runtime=$this->stripTagsAndTrim($_POST['runtime']);
         $tagline=$this->stripTagsAndTrim($_POST['tagline']);
         $title=$this->stripTagsAndTrim($_POST['title']);
-        $this->movie=Movie::create($id,intval($_POST['posterId']),$originalLanguage,$originalTitle,$overview,$releaseDate,$runtime,$tagline,$title);
+        $this->movie=Movie::create(intval($_POST['posterId']),$originalLanguage,$originalTitle,$overview,$releaseDate,$runtime,$tagline,$title,$id);
     }
 
 }

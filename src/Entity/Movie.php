@@ -5,18 +5,19 @@ declare(strict_types=1);
 namespace Entity;
 
 use Database\MyPdo;
+use Entity\Collection\PeopleCollection;
 use Entity\Exception\EntityNotFoundException;
 
 class Movie
 {
-    private int $id;
-    private int $posterId;
+    private ?int $id;
+    private ?int $posterId;
     private string $originalLanguage;
     private string $originalTitle;
-    private string $overview;
+    private ?string $overview;
     private string $releaseDate;
     private int $runtime;
-    private string $tagline;
+    private ?string $tagline;
     private string $title;
 
     private function __construct()
@@ -31,10 +32,10 @@ class Movie
     {
         return $this->id;
     }/**
-     * @param int $id
+     * @param ?int $id
      * @return Movie
      */
-    public function setId(int $id): Movie
+    public function setId(?int $id): Movie
     {
         $this->id = $id;
         return $this;
@@ -140,10 +141,10 @@ class Movie
     }
 
     /**
-     * @param int $runtime
+     * @param ?int $runtime
      * @return Movie
      */
-    public function setRuntime(int $runtime): Movie
+    public function setRuntime(?int $runtime): Movie
     {
         $this->runtime = $runtime;
         return $this;
@@ -205,7 +206,21 @@ class Movie
 
     public function getPeople()
     {
-        return PeopleCollection::findByPeopleId($this->id);
+        return PeopleCollection::findByMovieId($this->id);
+    }
+
+    public function delete(): Movie
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+        DELETE FROM movie
+        WHERE id= ?
+       SQL
+        );
+        $stmt->setFetchMode(MyPDO::FETCH_CLASS, Movie::class);
+        $stmt->execute([$this->id]);
+        $this->setId(null);
+        return $this;
     }
 
     protected function update(): Movie
@@ -246,7 +261,7 @@ class Movie
         return $this;
     }
 
-    public static function create($id=null,$posterId,$originalLanguage,$originalTitle,$overview,$releaseDate,$runtime,$tagline,$title): Movie
+    public static function create($posterId,$originalLanguage,$originalTitle,$overview,$releaseDate,$runtime,$tagline,$title,$id=null,): Movie
     {
         $movie=new Movie();
         $movie->setId($id);
