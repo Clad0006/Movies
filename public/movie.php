@@ -44,7 +44,7 @@ foreach ($people as $ligne) {
     if($ligne->getAvatarId()!=null) {
         $webpage->appendContent("<div class='acteur'><a href='people.php?peopleId={$ligne->getId()}'><img class='avatar' src='image.php?imageId={$ligne->getAvatarId()}'><div class='infoActeur'><div class='nomActeur'>".$webpage->escapeString("{$ligne->getName()}")."</div><div class='role'>".$role[$n]->getRole()."</div></a></div></div>\n");    }
     else{
-        $webpage->appendContent("<div class='acteur'><img src='https://i0.wp.com/zblibrary.info/wp-content/uploads/sites/76/2017/03/default-user.png?ssl=1'><div class='infoActeur'><div class='nomActeur'>" . $webpage->escapeString("{$ligne->getName()}") . "</div><div class='nomActeur'>" . $webpage->escapeString("{$ligne->getName()}") . "</div></div></div>\n");
+        $webpage->appendContent("<div class='acteur'><a href='people.php?peopleId={$ligne->getId()}'><img src='https://i0.wp.com/zblibrary.info/wp-content/uploads/sites/76/2017/03/default-user.png?ssl=1'><div class='infoActeur'><div class='nomActeur'>" . $webpage->escapeString("{$ligne->getName()}") . "</div><div class='nomActeur'>" . $webpage->escapeString("{$ligne->getName()}") . "</div></a></div></div>\n");
     }
 }
 $webpage->appendContent("</div>\n");
