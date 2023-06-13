@@ -21,7 +21,12 @@ $nom = $movie->getTitle();
 $webpage->setTitle("Films - $nom");
 
 $webpage->appendContent("<div class='descriptionFilm'>\n");
-$webpage->appendContent("                <img class='affiche' src='image.php?imageId={$movie->getPosterId()}'>\n");
+if ($movie->getPosterId()!=null){
+    $webpage->appendContent("                <img src='image.php?imageId={$movie->getPosterId()}'>\n");
+}
+else{
+    $webpage->appendContent("                <img src='https://c8.alamy.com/compfr/ek1c8x/cinema-film-la-cinematographie-annonce-affiche-ou-flyer-avec-arriere-plan-de-l-espace-vide-ek1c8x.jpg'>\n");
+}
 $webpage->appendContent("                <div class='info'>\n");
 $webpage->appendContent("                    <div class='titreDate'>\n");
 $webpage->appendContent("                        <div class='titre'>".$webpage->escapeString("{$movie->getTitle()}")."</div>\n");
@@ -36,8 +41,12 @@ $webpage->appendContent("            </div>\n");
 $webpage->appendContent("<div class='lesActeurs'>\n");
 $n = 0;
 foreach ($people as $ligne) {
-    $webpage->appendContent("<div class='acteur'><a href='people.php?peopleId={$ligne->getId()}'><img class='avatar' src='image.php?imageId={$ligne->getAvatarId()}'><div class='infoActeur'><div class='nomActeur'>".$webpage->escapeString("{$ligne->getName()}")."</div><div class='role'>".$role[$n]->getRole()."</div></a></div></div>\n");
-    $n += 1;
+    if($ligne->getAvatarId()!=null) {
+        $webpage->appendContent("<div class='acteur'><img src='image.php?imageId={$ligne->getAvatarId()}'><div class='infoActeur'><div class='nomActeur'>" . $webpage->escapeString("{$ligne->getName()}") . "</div><div class='nomActeur'>" . $webpage->escapeString("{$ligne->getName()}") . "</div></div></div>\n");
+    }
+    else{
+        $webpage->appendContent("<div class='acteur'><img src='https://i0.wp.com/zblibrary.info/wp-content/uploads/sites/76/2017/03/default-user.png?ssl=1'><div class='infoActeur'><div class='nomActeur'>" . $webpage->escapeString("{$ligne->getName()}") . "</div><div class='nomActeur'>" . $webpage->escapeString("{$ligne->getName()}") . "</div></div></div>\n");
+    }
 }
 $webpage->appendContent("</div>\n");
 
