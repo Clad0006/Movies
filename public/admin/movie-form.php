@@ -6,7 +6,9 @@ use Entity\Movie;
 use Entity\Exception\EntityNotFoundException;
 use Entity\Exception\ParameterException;
 use \Html\Form\MovieForm;
+use Html\AppWebPage;
 
+$webpage = new AppWebPage();
 
 if (!$_GET){
     $id_present=false;
@@ -37,5 +39,16 @@ if ($id_present){
 else{
     $form=new MovieForm();
 }
+$webpage->appendContent("{$form->getHtmlForm("movie-save.php")}");
+if (!$_GET){
+    $webpage->setTitle("Ajouter un film");
+}
+else{
+    $nom = $movie->getTitle();
+    $webpage->setTitle("Modifier - $nom");
+}
+$webpage->appendFooter("<p>Dernière modification : {$webpage->getLastModif()}</p>\n"."<a href='../index.php'> Retourner à l'acceuil</a>");
 
-echo $form->getHtmlForm("movie-save.php");
+echo $webpage->toHTML();
+
+

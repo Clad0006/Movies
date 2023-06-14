@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Html\Form;
 
-use Entity\Artist;
 use Entity\Exception\ParameterException;
 use Entity\Movie;
 use Html\StringEscaper;
@@ -41,31 +40,32 @@ class MovieForm
         $title=$this->escapeString($this->movie?->getTitle());
         return "
         <form name=\"ArtistForm\" action='$action' method='post'>
-            <div>
+            <div class='ajout'>
                 <label for='originalLanguage'>Langue originale :</label>
                 <input type='text' name='originalLanguage' id='originalLanguage' value='$originalLanguage' required> 
             </div>
-            <div>
+            <div class='ajout'>
                 <label for='originalTitle'>Titre original :</label>
                 <input type='text' name='originalTitle' id='originalTitle' value='$originalTitle' required> 
             </div>
-            <div>
-                <label for='overview'>Résumé :</label>
-                <input type='text' name='overview' id='overview' value='$overview' required> 
+            <div class='ajout'>
+                <label for='overview'>Résumé :
+                    <textarea class='overwiew' name='overview' id='overview'  required>$overview</textarea>
+                </label>                 
             </div>
-            <div>
+            <div class='ajout'>
                 <label for='releaseDate'>Date de sortie :</label>
                 <input type='text' name='releaseDate' id='releaseDate' value='$releaseDate' required> 
             </div>
-            <div>
+            <div class='ajout'>
                 <label for='runtime'>Durée :</label>
                 <input type='text' name='runtime' id='runtime' value='$runtime' required> 
             </div>
-            <div>
+            <div class='ajout'>
                 <label for='tagline'>Slogan :</label>
                 <input type='text' name='tagline' id='tagline' value='$tagline' required> 
             </div>
-            <div>
+            <div class='ajout'>
                 <label for='title'>Titre :</label>
                 <input type='text' name='title' id='title' value='$title' required> 
             </div>

@@ -20,8 +20,10 @@ $role = PeopleCollection::findRolesByMovieId(intval($movieId));
 $nom = $movie->getTitle();
 $webpage->setTitle("Films - $nom");
 
-$webpage->appendContent("<a href='/admin/movie-form.php?movieId={$movie->getId()}'>Modifier</a>");
-$webpage->appendContent("<a href='/admin/movie-delete.php?movieId={$movie->getId()}'>Supprimer</a>");
+$webpage->appendContent("<div class='ModifSuppr'>");
+$webpage->appendContent("<div class='modifier'><a href='/admin/movie-form.php?movieId={$movie->getId()}'>Modifier</a></div>\n");
+$webpage->appendContent("<div class='supprimer'><a href='/admin/movie-delete.php?movieId={$movie->getId()}'>Supprimer</a></div>\n");
+$webpage->appendContent("</div>\n");
 
 $webpage->appendContent("<div class='list'>");
 $webpage->appendContent("<div class='descriptionFilm'>\n");
