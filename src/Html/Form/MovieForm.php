@@ -50,9 +50,9 @@ class MovieForm
                 <input type='text' name='originalTitle' id='originalTitle' value='$originalTitle' required> 
             </div>
              <div class='ajout'>
-                <label for='overview'>Résumé :
+                <label for='overview'>Résumé :</label>
                     <textarea class='overwiew' name='overview' id='overview'  required>$overview</textarea>
-                </label>                 
+                                 
             </div>
             <div class='ajout'>
                 <label for='releaseDate'>Date de sortie :</label>
@@ -70,6 +70,10 @@ class MovieForm
                 <label for='title'>Titre :</label>
                 <input type='text' name='title' id='title' value='$title' required> 
             </div>
+            <div class='button'>
+                <button type='submit'>Enregistrer</button>
+            </div>
+
         </form>
         ";
     }

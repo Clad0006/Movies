@@ -321,11 +321,11 @@ input{
     flex: 1;
 }
 .overwiew{
-    width: 300px;
+    width: 350px;
     height: 100px;
 }
 .button{
-    align-self: center;
+    align-self:center;
 }
 button[type='submit']{
     font-size: 1.2em;
