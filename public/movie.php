@@ -25,7 +25,7 @@ $webpage->appendContent("<div class='modifier'><a href='/admin/movie-form.php?mo
 $webpage->appendContent("<div class='supprimer'><a href='/admin/movie-delete.php?movieId={$movie->getId()}'>Supprimer</a></div>\n");
 $webpage->appendContent("</div>\n");
 
-$webpage->appendContent("<div class='list'>");
+$webpage->appendContent("<div class='listMovie'>");
 $webpage->appendContent("<div class='descriptionFilm'>\n");
 if ($movie->getPosterId()!=null){
     $webpage->appendContent("                <img class='affiche' src='image.php?imageId={$movie->getPosterId()}'>\n");
