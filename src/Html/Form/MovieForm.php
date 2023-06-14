@@ -51,8 +51,7 @@ class MovieForm
             </div>
              <div class='ajout'>
                 <label for='overview'>Résumé :</label>
-                    <textarea class='overwiew' name='overview' id='overview'  required>$overview</textarea>
-                                 
+                    <textarea class='overwiew' name='overview' id='overview'  required>$overview</textarea>          
             </div>
             <div class='ajout'>
                 <label for='releaseDate'>Date de sortie :</label>
