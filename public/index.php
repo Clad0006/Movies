@@ -9,7 +9,7 @@ $webpage = new AppWebPage();
 
 $webpage->setTitle('Films');
 
-$webpage->appendContent('<a href="/admin/movie-form.php">Ajouter</a>');
+$webpage->appendContent('<div class="ajouter"><a href="/admin/movie-form.php">Ajouter</a></div>');
 
 $webpage->appendContent("<div class='list'>");
 $stmt = MovieCollection::findAll();
