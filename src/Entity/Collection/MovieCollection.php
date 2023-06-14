@@ -27,4 +27,21 @@ class MovieCollection
         return $stmt->fetchAll();
     }
 
+    public static function findByGenreName(string $genreName):array
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+                SELECT DISTINCT m.*
+                FROM movie m JOIN movie_genre mg on m.id=mg.movieId JOIN genre g on mg.genreId=g.id
+                WHERE g.name= ?
+                ORDER BY g.name,m.title
+            SQL
+        );
+
+        $stmt->setFetchMode(MyPdo::FETCH_CLASS, Movie::class);
+        $stmt->execute([$genreName]);
+        return $stmt->fetchAll();
+    }
+
+
 }
