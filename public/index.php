@@ -49,13 +49,14 @@ foreach ($genres as $genre) {
 $webpage->appendContent("
                         <input name='genreSubmit' type='submit' value='Valider'>
                     </form>
+                    <a class='reset' href='index.php'>Reset</a>
             </div>
         </div>
 ");
 $webpage->appendContent("<div class='listFilm'>");
 foreach ($filterMovie as $ligne) {
     if ($ligne->getPosterId() != null){
-        $webpage->appendContent("<div class='films'><a href='movie.php?movieId={$ligne->getId()}'><img src='image.php?imageId={$ligne->getPosterId()}'>" . "<div class='title'>" . $webpage->escapeString("{$ligne->getTitle()}") . "</a></div></div><br>\n");
+        $webpage->appendContent("<div class='films'><a href='movie.php?movieId={$ligne->getId()}'><div class='afficheAcceuil'><img src='image.php?imageId={$ligne->getPosterId()}'></div>" . "<div class='title'>" . $webpage->escapeString("{$ligne->getTitle()}") . "</a></div></div><br>\n");
     }
     else{
         $webpage->appendContent("<div class='films'><a href='movie.php?movieId={$ligne->getId()}'><img src='https://c8.alamy.com/compfr/ek1c8x/cinema-film-la-cinematographie-annonce-affiche-ou-flyer-avec-arriere-plan-de-l-espace-vide-ek1c8x.jpg'>" . "<div class='title'>" . $webpage->escapeString("{$ligne->getTitle()}") . "</a></div></div><br>\n");
