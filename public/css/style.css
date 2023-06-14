@@ -12,13 +12,11 @@ body {
 }
 .header {
     display: flex;
-    margin: 20px;
     padding: 5px;
-    border: 1px solid white;
     justify-content: center;
 }
 h1{
-    color: #4bdc5a;
+    color: #efa42c;
     text-align: center;
     padding: 10px;
     font-size: 1em;
@@ -30,10 +28,16 @@ h1{
     display: flex;
     width: 150px;
 }
+.reset{
+    display: flex;
+    background: #e0dddd;
+    border-radius: 3px;
+    padding: 2px;
+    color: black;
+    justify-content: center;
+}
 .content {
-    margin: 0 20px;
     padding: 20px;
-    border: 1px solid white;
     overflow: scroll;
 }
 .listIndex{
@@ -73,19 +77,25 @@ a{
 }
 img{
     width: 130px;
-    border-radius: 20px;
+}
+.afficheAcceuil{
+    box-shadow: 5px 5px 5px orange;;
+}
+.title{
+    margin: 10px;
 }
 .info{
     display: flex;
     flex-direction: column;
     row-gap: 5px;
     margin: 10px;
+    width: 100%;
 }
 .descriptionFilm{
     display: flex;
     flex-direction: column;
     padding: 5px;
-    border: 2px solid #4bdc5a;
+    border: 2px solid orange;
     border-radius: 10px;
 }
 .titre{
@@ -128,12 +138,13 @@ img{
     height: 250px;
     align-self: center;
     margin: 10px 0;
+    border-radius: 10px;
 }
 .lesActeurs{
     display: flex;
     flex-direction: column;
     padding: 10px;
-    border: 2px solid #4bdc5a;
+    border: 2px solid orange;
     border-radius: 10px;
     gap: 10px;
 }
@@ -173,13 +184,14 @@ img{
     display: flex;
     flex-direction: column;
     padding: 10px;
-    border: 2px solid #4bdc5a;
+    border: 2px solid orange;
     border-radius: 10px;
 }
 .photo{
     width: 130px;
     height: 200px;
     align-self: center;
+    border-radius: 10px;
 }
 
 .nom{
@@ -216,12 +228,13 @@ img{
     border: 2px solid #8f8e8e;
     border-radius: 10px;
     padding: 10px;
+
 }
 .lesFilms{
     display: flex;
     flex-direction: column;
     padding: 10px;
-    border: 2px solid #4bdc5a;
+    border: 2px solid orange;
     border-radius: 10px;
     gap: 10px;
 }
@@ -272,12 +285,12 @@ img{
     padding-bottom: 10px;
 }
 .footer > p{
-    color: #4bdc5a;
+    color: orange;
     text-align: center;
     align-self: center;
 }
 .footer > a{
-    color: #4bdc5a;
+    color: orange;
     text-align: center;
     align-self: center;
 }
@@ -371,6 +384,7 @@ button[type='submit']{
     }
     .afficheFilm{
         margin-left: 0;
+        margin-top: 25px;
     }
 }
 @media screen and (min-width: 470px){
@@ -382,6 +396,10 @@ button[type='submit']{
     }
     h1{
         font-size: 1.5em;
+    }
+
+    .afficheFilm{
+        margin-top: 10px;
     }
 }
 @media screen and (min-width: 600px){
@@ -403,6 +421,9 @@ button[type='submit']{
     }
     h1{
         font-size: 2em;
+    }
+    .afficheFilm{
+        margin-top: 0;
     }
 
 }
