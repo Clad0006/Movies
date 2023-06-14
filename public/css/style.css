@@ -119,6 +119,7 @@ img{
 .avatar{
     width: 75px;
     border-radius: 5px;
+    align-content: center;
 }
 .infoActeur{
     display: flex;
@@ -144,8 +145,7 @@ img{
     padding: 10px;
     border: 2px solid #4bdc5a;
     border-radius: 10px;
-    flex: 1;
-
+    width: 100%;
 }
 .photo{
     width: 150px;
