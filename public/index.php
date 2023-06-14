@@ -24,13 +24,24 @@ if (!empty($selectGenres)){
     $filterMovie = MovieCollection::findAll();
 }
 
+$listeAntiDoublons=[];
+foreach ($filterMovie as $Movie){
+    if (!in_array($Movie->getId(),$listeAntiDoublons)){
+        $listeAntiDoublons[] = $Movie->getId();
+    }
+    else{
+        unset($filterMovie[array_search($Movie,$filterMovie)]);
+        $filterMovie=array_values($filterMovie);
+    }
+}
+
 $webpage->appendContent("<div class='dropdown'><br>
                 <p>Genres :</p>
                     <div class='dropdown-content'>
                     <form>");
 
 $genres = GenreCollection::findAll();
-$webpage->appendContent('<select name="genre" id="genre" multiple>');
+$webpage->appendContent('<select name="genres[]" id="genres" multiple>');
 foreach ($genres as $genre) {
     $webpage->appendContent("<option name='genres[]' value='{$genre->getName()}'>{$genre->getName()}\n");
 }
