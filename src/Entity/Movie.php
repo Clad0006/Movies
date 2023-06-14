@@ -43,9 +43,9 @@ class Movie
 
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getPosterId(): int
+    public function getPosterId(): ?int
     {
         return $this->posterId;
     }
@@ -241,13 +241,13 @@ class Movie
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-        INSERT INTO artist(id,posterId,originalLanguage,originalTitle,overview,releaseDate,runtime,tagline,title)
+        INSERT INTO movie(id,posterId,originalLanguage,originalTitle,overview,releaseDate,runtime,tagline,title)
         VALUES(?,?,?,?,?,?,?,?,?)
        SQL
         );
         $stmt->setFetchMode(MyPDO::FETCH_CLASS, Movie::class);
+        $this->id=intval(MyPdo::getInstance()->lastInsertId()+1);
         $stmt->execute([$this->id,$this->posterId,$this->originalLanguage,$this->originalTitle,$this->overview,$this->releaseDate,$this->runtime,$this->tagline,$this->title]);
-        $this->id=intval(MyPdo::getInstance()->lastInsertId());
         return $this;
     }
 
