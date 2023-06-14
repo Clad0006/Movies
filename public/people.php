@@ -18,6 +18,7 @@ $role = People::findRoles(intval($peopleId));
 $nom = $people->getName();
 $webpage->setTitle("Films - $nom");
 
+$webpage->appendContent("<div class='list'>");
 $webpage->appendContent("<div class='descriptionActeur'>\n");
 if($people->getAvatarId()!=null) {
     $webpage->appendContent("                <img class='photo' src='image.php?imageId={$people->getAvatarId()}'>\n");
@@ -48,6 +49,7 @@ foreach ($people_movie as $ligne) {
     }
     $n += 1;
 }
+$webpage->appendContent("</div>\n");
 $webpage->appendContent("</div>\n");
 
 $webpage->appendFooter("<p>Dernière modification : {$webpage->getLastModif()}</p>\n"."<a href='index.php'> Retourner à l'acceuil</a>");

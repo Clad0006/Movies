@@ -20,6 +20,10 @@ $role = PeopleCollection::findRolesByMovieId(intval($movieId));
 $nom = $movie->getTitle();
 $webpage->setTitle("Films - $nom");
 
+$webpage->appendContent("<a href='/admin/movie-form.php?movieId={$movie->getId()}'>Modifier</a>");
+$webpage->appendContent("<a href='/admin/movie-delete.php?movieId={$movie->getId()}'>Supprimer</a>");
+
+$webpage->appendContent("<div class='list'>");
 $webpage->appendContent("<div class='descriptionFilm'>\n");
 if ($movie->getPosterId()!=null){
     $webpage->appendContent("                <img class='affiche' src='image.php?imageId={$movie->getPosterId()}'>\n");
@@ -38,6 +42,7 @@ $webpage->appendContent("                    <div class='resume'>".$webpage->esc
 $webpage->appendContent("                </div>\n");
 $webpage->appendContent("            </div>\n");
 
+
 $webpage->appendContent("<div class='lesActeurs'>\n");
 $n = 0;
 foreach ($people as $ligne) {
@@ -48,6 +53,7 @@ foreach ($people as $ligne) {
     }
     $n += 1;
 }
+$webpage->appendContent("</div>\n");
 $webpage->appendContent("</div>\n");
 
 $webpage->appendFooter("<p>Dernière modification : {$webpage->getLastModif()}</p>\n"."<a href='index.php'> Retourner à l'acceuil</a>");
