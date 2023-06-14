@@ -10,9 +10,9 @@ $webpage = new AppWebPage();
 
 $webpage->setTitle('Films');
 
-$webpage->appendContent('<div class="ajouter"><a href="/admin/movie-form.php">Ajouter</a></div>');
+$webpage->appendContent("<div class='ajouter'><a href='/admin/movie-form.php'>Ajouter</a></div>\n");
 
-$webpage->appendContent("<div class='list'>");
+$webpage->appendContent("        <div class='listIndex'>");
 $selectGenres = $_GET['genres'] ?? [];
 $filterMovie = array();
 
@@ -30,18 +30,18 @@ $webpage->appendContent("<div class='dropdown'><br>
                     <form>");
 
 $genres = GenreCollection::findAll();
-
+$webpage->appendContent('<select name="genre" id="genre" multiple>');
 foreach ($genres as $genre) {
-    $webpage->appendContent("<input type='checkbox' name='genres[]' value='{$genre->getName()}'>{$genre->getName()}<br>");
+    $webpage->appendContent("<option name='genres[]' value='{$genre->getName()}'>{$genre->getName()}\n");
 }
 
 $webpage->appendContent("
-                        <input type='submit' value='Submit'>
+                        <input name='genreSubmit' type='submit' value='Valider'>
                     </form>
             </div>
         </div>
 ");
-
+$webpage->appendContent("<div class='listFilm'>");
 foreach ($filterMovie as $ligne) {
     if ($ligne->getPosterId() != null){
         $webpage->appendContent("<div class='films'><a href='movie.php?movieId={$ligne->getId()}'><img src='image.php?imageId={$ligne->getPosterId()}'>" . "<div class='title'>" . $webpage->escapeString("{$ligne->getTitle()}") . "</a></div></div><br>\n");
@@ -50,6 +50,7 @@ foreach ($filterMovie as $ligne) {
         $webpage->appendContent("<div class='films'><a href='movie.php?movieId={$ligne->getId()}'><img src='https://c8.alamy.com/compfr/ek1c8x/cinema-film-la-cinematographie-annonce-affiche-ou-flyer-avec-arriere-plan-de-l-espace-vide-ek1c8x.jpg'>" . "<div class='title'>" . $webpage->escapeString("{$ligne->getTitle()}") . "</a></div></div><br>\n");
     }
 }
+$webpage->appendContent("</div>\n");
 $webpage->appendContent("</div>\n");
 $webpage->appendFooter("<p>Dernière modification : {$webpage->getLastModif()}</p>\n");
 

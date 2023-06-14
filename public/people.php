@@ -18,7 +18,7 @@ $role = People::findRoles(intval($peopleId));
 $nom = $people->getName();
 $webpage->setTitle("Films - $nom");
 
-$webpage->appendContent("<div class='list'>");
+$webpage->appendContent("<div class='listPeople'>");
 $webpage->appendContent("<div class='descriptionActeur'>\n");
 if($people->getAvatarId()!=null) {
     $webpage->appendContent("                <img class='photo' src='image.php?imageId={$people->getAvatarId()}'>\n");
@@ -45,7 +45,7 @@ foreach ($people_movie as $ligne) {
         $webpage->appendContent("<div class='film'><a href='movie.php?movieId={$ligne->getId()}'><img class='afficheFilm' src='image.php?imageId={$ligne->getPosterId()}'><div class='infoFilm'><div class='titreDate2'><div class='titreFilm'>".$webpage->escapeString("{$ligne->getTitle()}")."</div><div class='dateFilm'>".$webpage->escapeString("{$ligne->getReleaseDate()}")."</div></div><div class='role'>".$role[$n]->getRole()."</div></a></div></div>\n");
     }
     else{
-        $webpage->appendContent("<div class='film'><a href='movie.php?movieId={$ligne->getId()}'><img class='affiche' src='https://c8.alamy.com/compfr/ek1c8x/cinema-film-la-cinematographie-annonce-affiche-ou-flyer-avec-arriere-plan-de-l-espace-vide-ek1c8x.jpg'><div class='infoFilm'><div class='titreFilm'>".$webpage->escapeString("{$ligne->getTitle()}")."<div class='dateFilm'>".$webpage->escapeString("{$ligne->getReleaseDate()}")."<div class='role'>".$role[$n]->getRole()."</div></div></div></a></div></div>\n");
+        $webpage->appendContent("<div class='film'><a href='movie.php?movieId={$ligne->getId()}'><img class='affiche' src='https://c8.alamy.com/compfr/ek1c8x/cinema-film-la-cinematographie-annonce-affiche-ou-flyer-avec-arriere-plan-de-l-espace-vide-ek1c8x.jpg'><div class='infoFilm'><div class='titreFilm'>".$webpage->escapeString("{$ligne->getTitle()}")."<div class='dateFilm'>".$webpage->escapeString("{$ligne->getReleaseDate()}")."<div class='role'>".$role[$n]->getRole()."</div></a></div></div>\n");
     }
     $n += 1;
 }

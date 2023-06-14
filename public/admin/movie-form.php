@@ -40,6 +40,7 @@ else{
     $form=new MovieForm();
 }
 $webpage->appendContent("{$form->getHtmlForm("movie-save.php")}");
+
 if (!$_GET){
     $webpage->setTitle("Ajouter un film");
 }
@@ -47,6 +48,7 @@ else{
     $nom = $movie->getTitle();
     $webpage->setTitle("Modifier - $nom");
 }
+
 $webpage->appendFooter("<p>Dernière modification : {$webpage->getLastModif()}</p>\n"."<a href='../index.php'> Retourner à l'acceuil</a>");
 
 echo $webpage->toHTML();

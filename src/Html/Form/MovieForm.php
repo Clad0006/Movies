@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Html\Form;
 
+use Entity\Artist;
 use Entity\Exception\ParameterException;
 use Entity\Movie;
 use Html\StringEscaper;
@@ -48,7 +49,7 @@ class MovieForm
                 <label for='originalTitle'>Titre original :</label>
                 <input type='text' name='originalTitle' id='originalTitle' value='$originalTitle' required> 
             </div>
-            <div class='ajout'>
+             <div class='ajout'>
                 <label for='overview'>Résumé :
                     <textarea class='overwiew' name='overview' id='overview'  required>$overview</textarea>
                 </label>                 
@@ -68,15 +69,6 @@ class MovieForm
             <div class='ajout'>
                 <label for='title'>Titre :</label>
                 <input type='text' name='title' id='title' value='$title' required> 
-            </div>
-            <div>
-                <input type='hidden' name='id' id='id' value='{$this->movie?->getId()}'>
-            </div>
-            <div>
-                <input type='hidden' name='posterId' id='posterId' value='{$this->movie?->getPosterId()}'>
-            </div>
-            <div class='button'>
-                <button type='submit'>Enregistrer</button>
             </div>
         </form>
         ";
