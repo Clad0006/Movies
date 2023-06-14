@@ -37,7 +37,7 @@ h1{
     gap: 10px;
     padding: 15px;
 }
-.film{
+.films{
     width: 150px;
     margin: 10px 0;
 }
@@ -117,7 +117,7 @@ img{
 }
 
 .avatar{
-    width: 75px;
+    width: 100px;
     border-radius: 5px;
     align-content: center;
 }
@@ -125,6 +125,7 @@ img{
     display: flex;
     flex-direction: column;
     flex: 1;
+    align-self: center;
 }
 .nomActeur{
     border: 2px solid #8f8e8e;
@@ -186,6 +187,50 @@ img{
 .bio{
     border: 2px solid #8f8e8e;
     border-radius: 10px;
+    padding: 10px;
+}
+.lesFilms{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 2px solid #4bdc5a;
+    border-radius: 10px;
+    width: 100%;
+    gap: 10px;
+}
+.film{
+    display: flex;
+    padding: 15px;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+.titreDate2{
+    display: flex;
+    column-gap: 10px;
+    padding: 10px;
+}
+.afficheFilm{
+    width: 110px;
+    border-radius: 5px;
+    align-content: center;
+}
+.infoFilm{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-self: center;
+}
+.titreFilm{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    flex: 3;
+    padding: 10px;
+}
+.dateFilm{
+    border: 2px solid #8f8e8e;
+    border-radius: 10px;
+    flex: 1;
+    text-align: right;
     padding: 10px;
 }
 .footer {
