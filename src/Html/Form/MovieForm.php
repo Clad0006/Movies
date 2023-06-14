@@ -23,9 +23,9 @@ class MovieForm
     }
 
     /**
-    * @return Movie
+    * @return ?Movie
     */
-    public function getMovie(): Movie
+    public function getMovie(): ?Movie
     {
         return $this->movie;
     }
@@ -51,7 +51,7 @@ class MovieForm
             </div>
              <div class='ajout'>
                 <label for='overview'>Résumé :</label>
-                    <textarea class='overwiew' name='overview' id='overview'  required>$overview</textarea>          
+                    <textarea class='overwiew' name='overview' id='overview'>$overview</textarea>          
             </div>
             <div class='ajout'>
                 <label for='releaseDate'>Date de sortie :</label>
@@ -63,11 +63,17 @@ class MovieForm
             </div>
             <div class='ajout'>
                 <label for='tagline'>Slogan :</label>
-                <input type='text' name='tagline' id='tagline' value='$tagline' required> 
+                <input type='text' name='tagline' id='tagline' value='$tagline'> 
             </div>
             <div class='ajout'>
                 <label for='title'>Titre :</label>
-                <input type='text' name='title' id='title' value='$title' required> 
+                <input type='text' name='title' id='title' value='$title'> 
+            </div>
+            <div>
+                <input type='hidden' name='id' id='id' value='{$this->movie?->getId()}'>
+            </div>
+            <div>
+                <input type='hidden' name='posterId' id='posterId' value='{$this->movie?->getPosterId()}'>
             </div>
             <div class='button'>
                 <button type='submit'>Enregistrer</button>
@@ -79,20 +85,20 @@ class MovieForm
 
     public function setEntityFromQueryString():void
     {
-        if (ctype_digit($_POST["id"])){
+        if (ctype_digit(intval($_POST["id"]))){
             $id=intval($_POST["id"]);
         }
         else{
             $id=null;
         }
-        if($_POST['originalLanguage']=='' or $_POST['originalTitle']=='' or $_POST['overview']=='' or $_POST['releaseDate']=='' or $_POST['runtime']=='' or $_POST['tagline']=='' or $_POST['title']==''){
+        if($_POST['originalLanguage']=='' or $_POST['originalTitle']=='' or $_POST['releaseDate']=='' or $_POST['runtime']==''){
             throw new ParameterException("Paramètre invalide");
         }
         $originalLanguage=$this->stripTagsAndTrim($_POST['originalLanguage']);
         $originalTitle=$this->stripTagsAndTrim($_POST['originalTitle']);
         $overview=$this->stripTagsAndTrim($_POST['overview']);
         $releaseDate=$this->stripTagsAndTrim($_POST['releaseDate']);
-        $runtime=$this->stripTagsAndTrim($_POST['runtime']);
+        $runtime=intval($this->stripTagsAndTrim($_POST['runtime']));
         $tagline=$this->stripTagsAndTrim($_POST['tagline']);
         $title=$this->stripTagsAndTrim($_POST['title']);
         $this->movie=Movie::create(intval($_POST['posterId']),$originalLanguage,$originalTitle,$overview,$releaseDate,$runtime,$tagline,$title,$id);

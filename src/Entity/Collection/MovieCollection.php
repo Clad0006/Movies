@@ -17,7 +17,7 @@ class MovieCollection
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
                 SELECT DISTINCT m.*
-                FROM movie m JOIN movie_genre mg on m.id=mg.movieId JOIN genre g on mg.genreId=g.id
+                FROM movie m LEFT JOIN movie_genre mg on m.id=mg.movieId LEFT JOIN genre g on mg.genreId=g.id
                 ORDER BY g.name,m.title
             SQL
         );

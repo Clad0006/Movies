@@ -12,7 +12,7 @@ try {
     if (!ctype_digit($_GET["movieId"]) or $_GET["movieId"]=='') {
         throw new ParameterException();
     }
-    else if (!(Movie::findById(intval($_GET["artistId"])))){
+    else if (!(Movie::findById(intval($_GET["movieId"])))){
         throw new EntityNotFoundException();
     }
 } catch (ParameterException) {
@@ -23,4 +23,4 @@ try {
     http_response_code(500);
 }
 
-Movie::findById(intval($_GET["artistId"]))->delete();
+Movie::findById(intval($_GET["movieId"]))->delete();

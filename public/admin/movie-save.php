@@ -9,7 +9,7 @@ use \Html\Form\MovieForm;
 header('Location: ../index.php');
 
 try {
-    if ($_POST["originalLanguage"]=='' or $_POST["originalTitle"]=='' or $_POST["releaseDate"]=='' or $_POST["runtime"]=='' or $_POST["title"]==''){
+    if ($_POST["originalLanguage"]=='' or $_POST["originalTitle"]=='' or $_POST["releaseDate"]=='' or $_POST["runtime"]==''){
         throw new ParameterException();
     }
 } catch (ParameterException) {
@@ -19,8 +19,5 @@ try {
 }
 
 $form= new MovieForm();
-try {
-    $form->setEntityFromQueryString();
-} catch (ParameterException $e) {
-}
+$form->setEntityFromQueryString();
 $form->getMovie()->save();
