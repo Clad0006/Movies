@@ -1,4 +1,4 @@
-# SAE 2.01 : Développement d'une application Web de consultation et modification de films
+# Développement d'une application Web de consultation et modification de films
 
 ## Nicolas Carré (carr0101) et Valentin Cladel (clad0006)
 
